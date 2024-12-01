@@ -1,6 +1,17 @@
 spring:
   application:
     name: simple-database
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.18.0.2:3306/simple_db # 하드코딩된 DB URL: 프로덕션 X
+    username: username
+    password: usersecret  # 하드코딩된 비밀: 프로덕션 X
+  jpa:
+    hibernate:
+      ddl-auto: create  # 매 서버 실행마다 데이터베이스 초기화: 프로덕션 X
+    show-sql: true      # 서버 로그에 매 SQL 출력: 프로덕션 X
+    properties:
+      hibernate.hibernate.format_sql: true  # 출력된 SQL 로그를 포매팅
 
 springdoc:
   api-docs:
