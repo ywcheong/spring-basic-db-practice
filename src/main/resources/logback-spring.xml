@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- TRACE - DEBUG - INFO - WARN - ERROR - OFF -->
+
+    <!-- 변수 정의 -->
+    <property name="FILE_LOG_PATH" value="./logs"/>
+
+    <!-- Appender 정의: console-logger -->
+    <appender name="console-logger" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Appender 정의: file-logger -->
+    <appender name="file-logger" class="ch.qos.logback.core.FileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <file>
+            ${FILE_LOG_PATH}/info.log
+        </file>
+        <encoder>
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%thread] %logger %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 패키지별 로거 정의 -->
+    <!-- Root 로거 정의 -->
+    <root>
+        <appender-ref ref="console-logger"/>
+        <appender-ref ref="file-logger"/>
+    </root>
+
+    <!-- 클래스 레벨 로거 정의 -->
+    <logger name="com.ywcheong.test.simpledatabase" level="INFO" additivity="false">
+        <!-- this block is intentionally empty -->
+    </logger>
+
+</configuration>
