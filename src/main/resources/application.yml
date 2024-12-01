@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: simple-database
+
+springdoc:
+  api-docs:
+    path: /openapi
+  swagger-ui:
+    path: /openapi/webview.html
