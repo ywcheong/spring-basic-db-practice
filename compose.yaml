@@ -3,8 +3,9 @@ services:
     image: 'mariadb:latest'
     environment:
       - 'MARIADB_DATABASE=simple_db'
-      - 'MARIADB_PASSWORD=usersecret'
       - 'MARIADB_USER=username'
+      - 'MARIADB_PASSWORD=usersecret'
+      - 'MARIADB_ROOT_PASSWORD=supersecret'
     ports:
       - '3306'
     volumes:
