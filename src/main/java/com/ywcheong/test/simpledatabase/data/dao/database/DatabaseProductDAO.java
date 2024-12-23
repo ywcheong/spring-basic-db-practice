@@ -4,7 +4,6 @@ import com.ywcheong.test.simpledatabase.data.dao.model.ProductDAO;
 import com.ywcheong.test.simpledatabase.data.entity.Product;
 import com.ywcheong.test.simpledatabase.data.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
@@ -33,7 +32,7 @@ public class DatabaseProductDAO implements ProductDAO {
     @Override
     public Product updateProductName(Long id, String name) throws Exception {
         Optional<Product> foundProduct = productRepository.findById(id);
-        if(foundProduct.isEmpty()) {
+        if (foundProduct.isEmpty()) {
             throw new Exception(String.format("Product id %d not found", id));
         }
 
@@ -47,7 +46,7 @@ public class DatabaseProductDAO implements ProductDAO {
     @Override
     public void deleteProduct(Long id) {
         Optional<Product> foundProduct = productRepository.findById(id);
-        if(foundProduct.isEmpty()) {
+        if (foundProduct.isEmpty()) {
             return;
         }
 
